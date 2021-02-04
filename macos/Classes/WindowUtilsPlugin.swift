@@ -10,9 +10,13 @@ public class WindowUtilsPlugin: NSObject, FlutterPlugin {
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
     switch call.method {
-    case "minimizeWindow":
+    case "closeWindow":
       if let window = NSApplication.shared.mainWindow {
-        window.orderBack(window)
+        window.orderBack(self)
+      }
+    case "showWindow":
+      if let window = NSApplication.shared.mainWindow {
+        window.makeKeyAndOrderFront(self)
       }
     case "setMinimumSize":
       if let window = NSApplication.shared.mainWindow {

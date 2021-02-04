@@ -6,8 +6,12 @@ import 'package:flutter/services.dart';
 class WindowUtils {
   static const MethodChannel _channel = const MethodChannel('window_utils');
 
-  static Future<void> minimizeWindow() async {
-    await _channel.invokeMethod('minimizeWindow');
+  static Future<void> closeWindow() async {
+    await _channel.invokeMethod('closeWindow');
+  }
+
+  static Future<void> showWindow() async {
+    await _channel.invokeMethod('showWindow');
   }
 
   static Future<void> setMinimumSize({
