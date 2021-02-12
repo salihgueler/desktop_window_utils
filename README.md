@@ -1,7 +1,7 @@
 # Desktop Window Utils (MacOS only for now)
 A plugin for you to control the windows, their properties and toolbar/titlebars.
 
-![Showcase](assets/showcase.gif)
+![Showcase](assets/long_showcase.gif)
 
 ## How to use it? 
 
