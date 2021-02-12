@@ -104,3 +104,9 @@ WindowUtils.setTopbarSpecifications(
 - [ ] Translucent Window
 - [ ] Translucent Toolbar/Titlebar
 - [ ] Custom background color for Toolbar/Titlebar
+
+## LICENSE
+=========
+Window Utils is licensed under the Apache License, Version 2.0. See
+[LICENSE](https://github.com/salihgueler/window_utils/blob/main/LICENSE) for the full
+license text.
