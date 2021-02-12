@@ -47,7 +47,7 @@ public class DesktopWindowUtilsPlugin: NSObject, FlutterPlugin {
         case "useToolbar":
             if let window = NSApplication.shared.mainWindow {
                 if #available(macOS 10.13, *) {
-
+                    
                     if let isUsingToolbar: Bool = (call.arguments as? [String: Any])?["isUsingToolbar"] as? Bool {
                         if isUsingToolbar {
                             let customToolbar = NSToolbar()
@@ -60,23 +60,24 @@ public class DesktopWindowUtilsPlugin: NSObject, FlutterPlugin {
         case "setTopbarSpecifications":
             if let window = NSApplication.shared.mainWindow {
                 if #available(macOS 10.13, *) {
-
                     if let isUsingToolbar: Bool = (call.arguments as? [String: Any])?["isUsingToolbar"] as? Bool {
                         if isUsingToolbar {
-                            let customToolbar = NSToolbar()
+                            let customToolbar = NSToolbar.init(identifier: NSToolbar.Identifier("DesktopWindowUtils"))
+                            customToolbar.allowsUserCustomization = true
                             if let isDividerInvisible: Bool = (call.arguments as? [String: Any])?["isDividerInvisible"] as? Bool {
                                 customToolbar.showsBaselineSeparator = !isDividerInvisible
+                                window.titlebarAppearsTransparent = isDividerInvisible
                             }
                             window.titleVisibility = .hidden
                             window.toolbar = customToolbar
                         } else {
-                           window.titlebarAppearsTransparent = true
+                            window.titlebarAppearsTransparent = true
                         }
                     }
                 }
             }
-
-
+            
+            
             
         default:
             result(FlutterMethodNotImplemented)
