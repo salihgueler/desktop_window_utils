@@ -1,3 +1,5 @@
-## 0.0.1
+## 0.0.2
+ - Updated Readme with the new package name
 
-* TODO: Describe initial release.
+## 0.0.1
+ - Initial release with the features
