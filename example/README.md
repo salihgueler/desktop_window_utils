@@ -1,6 +1,6 @@
-# window_utils_example
+# desktop_window_utils_example
 
-Demonstrates how to use the window_utils plugin.
+Demonstrates how to use the desktop_window_utils plugin.
 
 ## Getting Started
 

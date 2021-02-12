@@ -1,7 +1,7 @@
-name: window_utils
+name: desktop_window_utils
 description: A plugin for you to control the windows, their properties and toolbar/titlebars.
 version: 0.0.1
-repository: https://github.com/salihgueler/window_utils
+repository: https://github.com/salihgueler/desktop_window_utils
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -19,4 +19,4 @@ flutter:
   plugin:
     platforms:
       macos:
-        pluginClass: WindowUtilsPlugin
+        pluginClass: DesktopWindowUtilsPlugin

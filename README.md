@@ -108,5 +108,5 @@ WindowUtils.setTopbarSpecifications(
 LICENSE
 =========
 Window Utils is licensed under the Apache License, Version 2.0. See
-[LICENSE](https://github.com/salihgueler/window_utils/blob/main/LICENSE) for the full
+[LICENSE](https://github.com/salihgueler/desktop_window_utils/blob/main/LICENSE) for the full
 license text.

@@ -1,10 +1,10 @@
 import Cocoa
 import FlutterMacOS
 
-public class WindowUtilsPlugin: NSObject, FlutterPlugin {
+public class DesktopWindowUtilsPlugin: NSObject, FlutterPlugin {
     public static func register(with registrar: FlutterPluginRegistrar) {
-        let channel = FlutterMethodChannel(name: "window_utils", binaryMessenger: registrar.messenger)
-        let instance = WindowUtilsPlugin()
+        let channel = FlutterMethodChannel(name: "desktop_window_utils", binaryMessenger: registrar.messenger)
+        let instance = DesktopWindowUtilsPlugin()
         registrar.addMethodCallDelegate(instance, channel: channel)
     }
     

@@ -1,9 +1,9 @@
+import 'package:desktop_window_utils/desktop_window_utils.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:window_utils/window_utils.dart';
 
 void main() {
-  const MethodChannel channel = MethodChannel('window_utils');
+  const MethodChannel channel = MethodChannel('desktop_window_utils');
 
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -26,18 +26,18 @@ void main() {
       });
     });
 
-    test('WindowUtils.closeWindow() is called', () async {
-      await WindowUtils.closeWindow();
+    test('DesktopWindowUtils.closeWindow() is called', () async {
+      await DesktopWindowUtils.closeWindow();
       expect(closeWindowCalled, isTrue);
     });
 
-    test('WindowUtils.minimizeWindow() is called', () async {
-      await WindowUtils.minimizeWindow();
+    test('DesktopWindowUtils.minimizeWindow() is called', () async {
+      await DesktopWindowUtils.minimizeWindow();
       expect(minimizeWindowCalled, isTrue);
     });
 
-    test('WindowUtils.showWindow() is called', () async {
-      await WindowUtils.showWindow();
+    test('DesktopWindowUtils.showWindow() is called', () async {
+      await DesktopWindowUtils.showWindow();
       expect(showWindowCalled, isTrue);
     });
 
@@ -75,43 +75,43 @@ void main() {
     });
 
     test(
-      'WindowUtils.setMinimumSize(height: 400, width: 200) is called',
+      'DesktopWindowUtils.setMinimumSize(height: 400, width: 200) is called',
       () async {
-        await WindowUtils.setMinimumSize(height: 400, width: 200);
+        await DesktopWindowUtils.setMinimumSize(height: 400, width: 200);
         expect(width, 200);
         expect(height, 400);
       },
     );
 
     test(
-      'WindowUtils.setFrameSize(height: 200, width: 100) is called',
+      'DesktopWindowUtils.setFrameSize(height: 200, width: 100) is called',
       () async {
-        await WindowUtils.setFrameSize(height: 200, width: 100);
+        await DesktopWindowUtils.setFrameSize(height: 200, width: 100);
         expect(width, 100);
         expect(height, 200);
       },
     );
 
-    test('WindowUtils.useToolbar(isUsingToolbar: true) is called', () async {
-      await WindowUtils.useToolbar(isUsingToolbar: true);
+    test('DesktopWindowUtils.useToolbar(isUsingToolbar: true) is called', () async {
+      await DesktopWindowUtils.useToolbar(isUsingToolbar: true);
       expect(isUsingToolbar, isTrue);
     });
 
-    test('WindowUtils.useToolbar() is called', () async {
-      await WindowUtils.useToolbar();
+    test('DesktopWindowUtils.useToolbar() is called', () async {
+      await DesktopWindowUtils.useToolbar();
       expect(isUsingToolbar, isFalse);
     });
 
-    test('WindowUtils.setTopbarSpecifications() is called', () async {
-      await WindowUtils.setTopbarSpecifications();
+    test('DesktopWindowUtils.setTopbarSpecifications() is called', () async {
+      await DesktopWindowUtils.setTopbarSpecifications();
       expect(isUsingToolbar, isFalse);
       expect(isDividerInvisible, isFalse);
     });
 
     test(
-      'WindowUtils.setTopbarSpecifications(isUsingToolbar: true, isDividerInvisible: true) is called',
+      'DesktopWindowUtils.setTopbarSpecifications(isUsingToolbar: true, isDividerInvisible: true) is called',
       () async {
-        await WindowUtils.setTopbarSpecifications(
+        await DesktopWindowUtils.setTopbarSpecifications(
           isUsingToolbar: true,
           isDividerInvisible: true,
         );

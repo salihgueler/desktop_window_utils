@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:window_utils/window_utils.dart';
+import 'package:desktop_window_utils/desktop_window_utils.dart';
 
 void main() {
   runApp(WindowUtilsShowcaseApp());
@@ -34,7 +34,7 @@ class _WindowUtilsShowcaseButtonsPageState
             'Use toolbar',
           ),
           onTap: () async {
-            WindowUtils.useToolbar(isUsingToolbar: true);
+            DesktopWindowUtils.useToolbar(isUsingToolbar: true);
           },
         ),
         ListTile(
@@ -42,7 +42,7 @@ class _WindowUtilsShowcaseButtonsPageState
             'Set minimum screen size to 300x300',
           ),
           onTap: () async {
-            WindowUtils.setMinimumSize(height: 300, width: 300);
+            DesktopWindowUtils.setMinimumSize(height: 300, width: 300);
           },
         ),
         ListTile(
@@ -50,7 +50,7 @@ class _WindowUtilsShowcaseButtonsPageState
             'Set screen size to 400x400',
           ),
           onTap: () async {
-            WindowUtils.setFrameSize(height: 400, width: 400);
+            DesktopWindowUtils.setFrameSize(height: 400, width: 400);
           },
         ),
         ListTile(
@@ -58,7 +58,7 @@ class _WindowUtilsShowcaseButtonsPageState
             'Close the Window',
           ),
           onTap: () async {
-            WindowUtils.closeWindow();
+            DesktopWindowUtils.closeWindow();
           },
         ),
         ListTile(
@@ -66,7 +66,7 @@ class _WindowUtilsShowcaseButtonsPageState
             'Minimize the Window',
           ),
           onTap: () async {
-            WindowUtils.minimizeWindow();
+            DesktopWindowUtils.minimizeWindow();
           },
         ),
         ListTile(
@@ -74,7 +74,7 @@ class _WindowUtilsShowcaseButtonsPageState
             'Remove divider for Titlebar',
           ),
           onTap: () async {
-            WindowUtils.setTopbarSpecifications(isDividerInvisible: true);
+            DesktopWindowUtils.setTopbarSpecifications(isDividerInvisible: true);
           },
         ),
         ListTile(
@@ -82,7 +82,7 @@ class _WindowUtilsShowcaseButtonsPageState
             'Remove divider for Toolbar',
           ),
           onTap: () async {
-            WindowUtils.setTopbarSpecifications(
+            DesktopWindowUtils.setTopbarSpecifications(
               isDividerInvisible: true,
               isUsingToolbar: true,
             );

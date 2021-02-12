@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class WindowUtils {
-  static const MethodChannel _channel = const MethodChannel('window_utils');
+class DesktopWindowUtils {
+  static const MethodChannel _channel = const MethodChannel('desktop_window_utils');
 
   static Future<void> closeWindow() async {
     await _channel.invokeMethod('closeWindow');

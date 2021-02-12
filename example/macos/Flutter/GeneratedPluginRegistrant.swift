@@ -5,8 +5,8 @@
 import FlutterMacOS
 import Foundation
 
-import window_utils
+import desktop_window_utils
 
 func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
-  WindowUtilsPlugin.register(with: registry.registrar(forPlugin: "WindowUtilsPlugin"))
+  DesktopWindowUtilsPlugin.register(with: registry.registrar(forPlugin: "DesktopWindowUtilsPlugin"))
 }
