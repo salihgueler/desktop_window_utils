@@ -10,6 +10,10 @@ class WindowUtils {
     await _channel.invokeMethod('closeWindow');
   }
 
+  static Future<void> minimizeWindow() async {
+    await _channel.invokeMethod('minimizeWindow');
+  }
+
   static Future<void> showWindow() async {
     await _channel.invokeMethod('showWindow');
   }
@@ -31,6 +35,24 @@ class WindowUtils {
     _channel.invokeMethod('setFrameSize', {
       'height': height,
       'width': width,
+    });
+  }
+
+  static Future<void> useToolbar({
+    bool isUsingToolbar = false,
+  }) async {
+    _channel.invokeMethod('useToolbar', {
+      'isUsingToolbar': isUsingToolbar,
+    });
+  }
+
+  static Future<void> setTopbarSpecifications({
+    bool isUsingToolbar = false,
+    bool isDividerInvisible = false,
+  }) async {
+    _channel.invokeMethod('setTopbarSpecifications', {
+      'isUsingToolbar': isUsingToolbar,
+      'isDividerInvisible': isDividerInvisible,
     });
   }
 }

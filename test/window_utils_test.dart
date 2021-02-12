@@ -3,21 +3,128 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:window_utils/window_utils.dart';
 
 void main() {
-  // const MethodChannel channel = MethodChannel('window_utils');
-  //
-  // TestWidgetsFlutterBinding.ensureInitialized();
-  //
-  // setUp(() {
-  //   channel.setMockMethodCallHandler((MethodCall methodCall) async {
-  //     return '42';
-  //   });
-  // });
-  //
-  // tearDown(() {
-  //   channel.setMockMethodCallHandler(null);
-  // });
-  //
-  // test('getPlatformVersion', () async {
-  //   expect(await WindowUtils.minimizeWindow, '42');
-  // });
+  const MethodChannel channel = MethodChannel('window_utils');
+
+  TestWidgetsFlutterBinding.ensureInitialized();
+
+  group('Window operations without parameters', () {
+    bool closeWindowCalled = false;
+    bool minimizeWindowCalled = false;
+    bool showWindowCalled = false;
+
+    setUp(() {
+      channel.setMockMethodCallHandler((MethodCall call) async {
+        if (call.method == 'closeWindow') {
+          closeWindowCalled = true;
+        } else if (call.method == 'minimizeWindow') {
+          minimizeWindowCalled = true;
+        } else if (call.method == 'showWindow') {
+          showWindowCalled = true;
+        } else {
+          throw MissingPluginException();
+        }
+      });
+    });
+
+    test('WindowUtils.closeWindow() is called', () async {
+      await WindowUtils.closeWindow();
+      expect(closeWindowCalled, isTrue);
+    });
+
+    test('WindowUtils.minimizeWindow() is called', () async {
+      await WindowUtils.minimizeWindow();
+      expect(minimizeWindowCalled, isTrue);
+    });
+
+    test('WindowUtils.showWindow() is called', () async {
+      await WindowUtils.showWindow();
+      expect(showWindowCalled, isTrue);
+    });
+
+    tearDown(() {
+      channel.setMethodCallHandler(null);
+      closeWindowCalled = false;
+      minimizeWindowCalled = false;
+      showWindowCalled = false;
+    });
+  });
+
+  group('Window operations with parameters', () {
+    double width = 0;
+    double height = 0;
+    bool isUsingToolbar = false;
+    bool isDividerInvisible = false;
+
+    setUp(() {
+      channel.setMockMethodCallHandler((MethodCall call) async {
+        if (call.method == 'setMinimumSize') {
+          width = call.arguments['width'] as double;
+          height = call.arguments['height'] as double;
+        } else if (call.method == 'setFrameSize') {
+          width = call.arguments['width'] as double;
+          height = call.arguments['height'] as double;
+        } else if (call.method == 'useToolbar') {
+          isUsingToolbar = call.arguments['isUsingToolbar'] as bool;
+        } else if (call.method == 'setTopbarSpecifications') {
+          isUsingToolbar = call.arguments['isUsingToolbar'] as bool;
+          isDividerInvisible = call.arguments['isDividerInvisible'] as bool;
+        } else {
+          throw MissingPluginException();
+        }
+      });
+    });
+
+    test(
+      'WindowUtils.setMinimumSize(height: 400, width: 200) is called',
+      () async {
+        await WindowUtils.setMinimumSize(height: 400, width: 200);
+        expect(width, 200);
+        expect(height, 400);
+      },
+    );
+
+    test(
+      'WindowUtils.setFrameSize(height: 200, width: 100) is called',
+      () async {
+        await WindowUtils.setFrameSize(height: 200, width: 100);
+        expect(width, 100);
+        expect(height, 200);
+      },
+    );
+
+    test('WindowUtils.useToolbar(isUsingToolbar: true) is called', () async {
+      await WindowUtils.useToolbar(isUsingToolbar: true);
+      expect(isUsingToolbar, isTrue);
+    });
+
+    test('WindowUtils.useToolbar() is called', () async {
+      await WindowUtils.useToolbar();
+      expect(isUsingToolbar, isFalse);
+    });
+
+    test('WindowUtils.setTopbarSpecifications() is called', () async {
+      await WindowUtils.setTopbarSpecifications();
+      expect(isUsingToolbar, isFalse);
+      expect(isDividerInvisible, isFalse);
+    });
+
+    test(
+      'WindowUtils.setTopbarSpecifications(isUsingToolbar: true, isDividerInvisible: true) is called',
+      () async {
+        await WindowUtils.setTopbarSpecifications(
+          isUsingToolbar: true,
+          isDividerInvisible: true,
+        );
+        expect(isUsingToolbar, isTrue);
+        expect(isDividerInvisible, isTrue);
+      },
+    );
+
+    tearDown(() {
+      width = 0;
+      height = 0;
+      isUsingToolbar = false;
+      isDividerInvisible = false;
+    });
+  });
 }
