@@ -1,3 +1,6 @@
+## 0.0.2+2
+ - Give showcase readme GIF a link.
+
 ## 0.0.2+1
  - Update the README with a GIF.
 

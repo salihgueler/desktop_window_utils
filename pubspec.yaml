@@ -1,6 +1,6 @@
 name: desktop_window_utils
 description: A plugin for you to control the windows, their properties and toolbar/titlebars.
-version: 0.0.2+1
+version: 0.0.2+2
 repository: https://github.com/salihgueler/desktop_window_utils
 
 environment:
