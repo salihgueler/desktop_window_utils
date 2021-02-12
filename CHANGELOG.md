@@ -1,3 +1,6 @@
+## 0.0.2+1
+ - Update the README with a GIF.
+
 ## 0.0.2
  - Updated Readme with the new package name
 
