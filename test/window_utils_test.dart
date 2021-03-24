@@ -50,24 +50,24 @@ void main() {
   });
 
   group('Window operations with parameters', () {
-    double width = 0;
-    double height = 0;
-    bool isUsingToolbar = false;
-    bool isDividerInvisible = false;
+    double? width = 0;
+    double? height = 0;
+    bool? isUsingToolbar = false;
+    bool? isDividerInvisible = false;
 
     setUp(() {
       channel.setMockMethodCallHandler((MethodCall call) async {
         if (call.method == 'setMinimumSize') {
-          width = call.arguments['width'] as double;
-          height = call.arguments['height'] as double;
+          width = call.arguments['width'] as double?;
+          height = call.arguments['height'] as double?;
         } else if (call.method == 'setFrameSize') {
-          width = call.arguments['width'] as double;
-          height = call.arguments['height'] as double;
+          width = call.arguments['width'] as double?;
+          height = call.arguments['height'] as double?;
         } else if (call.method == 'useToolbar') {
-          isUsingToolbar = call.arguments['isUsingToolbar'] as bool;
+          isUsingToolbar = call.arguments['isUsingToolbar'] as bool?;
         } else if (call.method == 'setTopbarSpecifications') {
-          isUsingToolbar = call.arguments['isUsingToolbar'] as bool;
-          isDividerInvisible = call.arguments['isDividerInvisible'] as bool;
+          isUsingToolbar = call.arguments['isUsingToolbar'] as bool?;
+          isDividerInvisible = call.arguments['isDividerInvisible'] as bool?;
         } else {
           throw MissingPluginException();
         }

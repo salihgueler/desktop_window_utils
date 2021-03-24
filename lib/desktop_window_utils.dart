@@ -1,38 +1,38 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class DesktopWindowUtils {
-  static const MethodChannel _channel = const MethodChannel('desktop_window_utils');
+  static const MethodChannel _channel =
+      const MethodChannel('desktop_window_utils');
 
-  static Future<void> closeWindow() async {
-    await _channel.invokeMethod('closeWindow');
+  static Future<bool?> closeWindow() async {
+    return await _channel.invokeMethod('closeWindow');
   }
 
-  static Future<void> minimizeWindow() async {
-    await _channel.invokeMethod('minimizeWindow');
+  static Future<bool?> minimizeWindow() async {
+    return await _channel.invokeMethod('minimizeWindow');
   }
 
-  static Future<void> showWindow() async {
-    await _channel.invokeMethod('showWindow');
+  static Future<bool?> showWindow() async {
+    return await _channel.invokeMethod('showWindow');
   }
 
-  static Future<void> setMinimumSize({
-    @required double height,
-    @required double width,
+  static Future<bool?> setMinimumSize({
+    required double height,
+    required double width,
   }) async {
-    _channel.invokeMethod('setMinimumSize', {
+    return await _channel.invokeMethod('setMinimumSize', {
       'height': height,
       'width': width,
     });
   }
 
-  static Future<void> setFrameSize({
-    @required double height,
-    @required double width,
+  static Future<bool?> setFrameSize({
+    required double height,
+    required double width,
   }) async {
-    _channel.invokeMethod('setFrameSize', {
+    return await _channel.invokeMethod('setFrameSize', {
       'height': height,
       'width': width,
     });

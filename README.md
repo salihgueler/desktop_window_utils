@@ -15,7 +15,7 @@ The library supports right now the following features:
 
 ```
 dependencies:
-  desktop_window_utils: ^0.0.2
+  desktop_window_utils: ^0.0.3
 ```
 And import: 
 ```dart

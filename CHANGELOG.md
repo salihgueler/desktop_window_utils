@@ -1,3 +1,7 @@
+## 0.0.3
+- Null Safety
+- Add boolean feedback to functions
+
 ## 0.0.2+2
  - Give showcase readme GIF a link.
 

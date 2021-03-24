@@ -12,37 +12,58 @@ public class DesktopWindowUtilsPlugin: NSObject, FlutterPlugin {
         switch call.method {
         case "closeWindow":
             if let window = NSApplication.shared.mainWindow {
+                result(true)
                 window.close()
+            } else {
+                result(false)
             }
         case "minimizeWindow":
             if let window = NSApplication.shared.mainWindow {
+                result(true)
                 window.miniaturize(self)
+            } else {
+                result(false)
             }
         case "showWindow":
+            NSApplication.shared.activate(ignoringOtherApps: true)
             if let window = NSApplication.shared.mainWindow {
                 if window.isMiniaturized {
+                    result(true)
                     window.deminiaturize(self)
                 } else {
+                    result(true)
                     window.makeKeyAndOrderFront(self)
                 }
+            } else {
+                 result(false)
             }
         case "setMinimumSize":
             if let window = NSApplication.shared.mainWindow {
                 if let width: Float = (call.arguments as? [String: Any])?["width"] as? Float,
                    let height: Float = (call.arguments as? [String: Any])?["height"] as? Float
                 {
+                    result(true)
                     window.minSize = CGSize(width:CGFloat(width), height:CGFloat(height))
+                } else {
+                    result(false)
                 }
+            } else {
+                    result(false)
             }
         case "setFrameSize":
             if let window = NSApplication.shared.mainWindow {
                 if let width: Float = (call.arguments as? [String: Any])?["width"] as? Float,
                    let height: Float = (call.arguments as? [String: Any])?["height"] as? Float
                 {
+                    result(true)
                     var frame = window.frame
                     frame.size = CGSize(width:CGFloat(width), height:CGFloat(height))
                     window.setFrame(frame, display: true)
+                } else {
+                    result(false)
                 }
+            } else {
+                result(false)
             }
         case "useToolbar":
             if let window = NSApplication.shared.mainWindow {
